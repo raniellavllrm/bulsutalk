@@ -114,7 +114,7 @@ export default function ReplyModal({ open, setOpen, postID }) {
             });
         db.collection("posts")
             .doc(postID)
-            .collection("reply").add({
+            .collection("reply").set({
                 postReplied: postID,
                 userID: currentUser.uid,
                 userName: profile.userName,
