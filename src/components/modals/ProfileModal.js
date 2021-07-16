@@ -141,6 +141,7 @@ export default function ProfileModal({ open, setOpen }) {
                 })
                 .then(() => {
                     if (image && image.fileImage) handleUpload();
+                    else handleClose();
                 });
 
         }
