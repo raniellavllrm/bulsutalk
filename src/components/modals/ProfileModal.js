@@ -65,7 +65,7 @@ export default function ProfileModal({ open, setOpen }) {
                                     db.collection("posts").doc(doc.id).update({
                                         userName: "@" + profile.userName,
                                         displayName: profile.firstName + profile.lastName,
-                                        imageURL: image.downloadURL
+                                        imageURL: url
                                     })
                                 }
                             });
