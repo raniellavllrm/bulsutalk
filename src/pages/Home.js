@@ -180,7 +180,7 @@ export default function Home() {
           let posts = [];
           snapshot.forEach((doc) => {
             console.log(moment(doc.data().date_posted).isSame(currentDate));
-            if (moment(doc.data().date_posted).isValid()) {
+            if (moment(doc.data().date_posted).isSame(currentDate, "day")) {
               posts.unshift({ ...doc.data(), id: doc.id });
             }
           });
