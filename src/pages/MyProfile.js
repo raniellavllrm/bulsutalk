@@ -134,9 +134,9 @@ export default function Home() {
     };
     const checkLike = (postID) => {
         let test = false;
-        return userLikes.likes && userLikes.likes.forEach((likes) => {
+        userLikes.likes && userLikes.likes.forEach((likes) => {
             if (likes.postLiked === postID) {
-                test = false;
+                test = true;
             }
         })
         return test;
