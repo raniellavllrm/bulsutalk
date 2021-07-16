@@ -182,7 +182,6 @@ export default function ReplyModal({ open, setOpen, postID }) {
             db.collection("posts")
                 .doc(postID)
                 .collection("reply")
-                .get()
                 .orderBy("date_replied")
                 .onSnapshot((snapshot) => {
                     if (snapshot) {
