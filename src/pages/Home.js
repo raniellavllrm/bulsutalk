@@ -111,14 +111,12 @@ export default function Home() {
   });
 
   const checkLike = (postID) => {
-
     return userLikes.likes && userLikes.likes.map((likes) => {
       if (likes.postLiked === postID) {
         return true;
       }
       return false;
     })
-    return test;
   }
   const likePost = (id, userID) => {
     const increment = firebase.firestore.FieldValue.increment(1);

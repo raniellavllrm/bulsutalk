@@ -126,20 +126,19 @@ export default function Home() {
                     .doc(replies.id)
                     .delete();
             }
-            return;
+            return false;
         })
         db.collection("posts")
             .doc(id)
             .delete();
     };
     const checkLike = (postID) => {
-        let test = false;
-        userLikes.likes && userLikes.likes.map((likes) => {
+        return userLikes.likes && userLikes.likes.map((likes) => {
             if (likes.postLiked === postID) {
-                test = true;
+                return true;
             }
+            return false;
         })
-        return test;
     }
     const likePost = (id) => {
         if (checkLike(id) === true) {
