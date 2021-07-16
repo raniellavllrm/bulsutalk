@@ -40,7 +40,7 @@ export default function ProfileModal({ open, setOpen }) {
         var storage = firebase.storage();
         var storageRef = storage.ref();
         var uploadTask = storageRef.child("images/" + currentUser.uid).put(file);
-        if (file !== null) {
+        if (image.fileImage !== null) {
             uploadTask.on(
                 firebase.storage.TaskEvent.STATE_CHANGED,
                 (snapshot) => {
