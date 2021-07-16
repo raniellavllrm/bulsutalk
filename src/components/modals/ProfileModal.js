@@ -140,7 +140,7 @@ export default function ProfileModal({ open, setOpen }) {
                     profilePic: true
                 })
                 .then(() => {
-                    if (image.fileImage !== null) handleUpload();
+                    if (image && image.fileImage) handleUpload();
                 });
 
         }
