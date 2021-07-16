@@ -122,10 +122,11 @@ export default function Home() {
         fetchReply(id);
         postReplies.replies && postReplies.replies.map((replies) => {
             if (replies.postReplied === id) {
-                db.collection("reply")
+                return db.collection("reply")
                     .doc(replies.id)
                     .delete();
             }
+            return;
         })
         db.collection("posts")
             .doc(id)

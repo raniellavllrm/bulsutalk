@@ -111,11 +111,12 @@ export default function Home() {
   });
 
   const checkLike = (postID) => {
-    let test = false;
-    userLikes.likes && userLikes.likes.map((likes) => {
+
+    return userLikes.likes && userLikes.likes.map((likes) => {
       if (likes.postLiked === postID) {
-        test = true;
+        return true;
       }
+      return false;
     })
     return test;
   }
