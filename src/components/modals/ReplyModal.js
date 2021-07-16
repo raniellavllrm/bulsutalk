@@ -112,23 +112,28 @@ export default function ReplyModal({ open, setOpen, postID }) {
                 notifAvatar: avatar.src,
                 sourceUser: currentUser.uid
             });
-        db.collection("reply")
-            .add({
-                postReplied: postID,
-                userID: currentUser.uid,
-                userName: profile.userName,
-                displayName: profile.displayName,
-                replyContent: reply.replyContent,
-                date_replied: new Date().toISOString(),
-                imageURL: avatar.src
-            });
-
         db.collection("posts")
-            .doc(postID).update({
-                replyCount: increment
-            })
-        reply.replyContent = "";
-    };
+            .doc(postID)
+            .get()
+            .then((doc) => {
+                if (doc.exists) {
+                    db.collection("reply").add({
+                        postReplied: postID,
+                        userID: currentUser.uid,
+                        userName: profile.userName,
+                        displayName: profile.displayName,
+                        replyContent: reply.replyContent,
+                        date_replied: new Date().toISOString(),
+                        imageURL: avatar.src
+                    });
+                }
+                db.collection("posts")
+                    .doc(postID).update({
+                        replyCount: increment
+                    })
+                reply.replyContent = "";
+            });
+    }
     const SearchButton = () => (
         <IconButton onClick={replyPost}>
             <SendIcon />
@@ -174,7 +179,10 @@ export default function ReplyModal({ open, setOpen, postID }) {
                 });
         }
         const fetchReply = () => {
-            db.collection("reply")
+            db.collection("posts")
+                .doc(postID)
+                .collection("reply")
+                .get()
                 .orderBy("date_replied")
                 .onSnapshot((snapshot) => {
                     if (snapshot) {
