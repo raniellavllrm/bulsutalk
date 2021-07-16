@@ -11,6 +11,7 @@ import {
     Grid,
     List,
 } from "@material-ui/core";
+import ReplyModal from "../components/modals/ReplyModal";
 
 const drawerWidth = 240;
 
@@ -66,6 +67,12 @@ export default function Notification() {
     const [userNotifs, setNotifs] = useState({
         notifs: null,
     });
+    const [replyModal, setReplyModal] = useState(false);
+    const [openID, setOpenID] = useState(0);
+    const replyPost = (postID) => {
+        setOpenID(postID);
+        setReplyModal(true);
+    }
     useEffect(() => {
         const db = firebase.firestore();
         const currentUser = firebase.auth().currentUser;
@@ -113,6 +120,7 @@ export default function Notification() {
                                         id="cardField"
                                         elevation={1}
                                         key={notifs.id}
+                                        onClick={replyPost(notifs.notifiedPost)}
                                     >
                                         <Grid container wrap="nowrap" spacing={2}>
                                             <Grid item>
@@ -140,6 +148,7 @@ export default function Notification() {
                             })}
                     </List>
                 </div>
+                <ReplyModal open={replyModal} setOpen={setReplyModal} postID={openID} />
             </main>
         </div>
     );
