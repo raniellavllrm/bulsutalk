@@ -172,16 +172,20 @@ export default function Home() {
     const db = firebase.firestore();
     const currentUser = firebase.auth().currentUser;
     const getUser = db.collection("users").doc(currentUser.uid);
-
+    const isToday = (someDate) => {
+      const today = new Date();
+      return someDate.getDate() == today.getDate() &&
+        someDate.getMonth() == today.getMonth() &&
+        someDate.getFullYear() == today.getFullYear()
+    }
     const fetchData = () => {
-      var currentDate = new Date().toISOString();
       db.collection("posts")
         .orderBy("date_posted")
         .onSnapshot((snapshot) => {
           let posts = [];
           snapshot.forEach((doc) => {
-            console.log((doc.data().date_posted === currentDate));
-            if (doc.data().date_posted === currentDate) {
+            console.log(isToday(doc.data().date_posted));
+            if (isToday(doc.data().date_posted)) {
               posts.unshift({ ...doc.data(), id: doc.id });
             }
           });
