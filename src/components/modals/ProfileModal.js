@@ -46,7 +46,6 @@ export default function ProfileModal({ open, setOpen }) {
                 var progress =
                     Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 setImage({ progress });
-                if (progress === 100) handleClose();
             },
             (error) => {
                 throw error;
@@ -70,6 +69,7 @@ export default function ProfileModal({ open, setOpen }) {
                                 }
                             });
                         });
+                    handleClose();
                 });
             }
         );

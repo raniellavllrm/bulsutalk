@@ -208,6 +208,7 @@ export default function Home() {
           setLikes({ likes: likes });
         });
     };
+    fetchData();
     const fetchAvatar = () => {
       var storageRef = firebase.storage().ref();
       storageRef
@@ -221,7 +222,6 @@ export default function Home() {
           console.log(error)
         });
     };
-    fetchData();
     return () => {
       setPosts({ posts: null });
       abortController.abort();
