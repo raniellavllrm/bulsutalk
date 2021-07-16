@@ -53,6 +53,7 @@ export default function ProfileModal({ open, setOpen }) {
             },
             () => {
                 uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+                    console.log(url);
                     setImage({
                         downloadURL: url,
                     });
@@ -64,7 +65,7 @@ export default function ProfileModal({ open, setOpen }) {
                                     db.collection("posts").doc(doc.id).update({
                                         userName: "@" + profile.userName,
                                         displayName: profile.firstName + profile.lastName,
-                                        imageURL: url
+                                        imageURL: image.downloadURL
                                     })
                                 }
                             });
