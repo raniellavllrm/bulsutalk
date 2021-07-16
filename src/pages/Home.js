@@ -174,9 +174,9 @@ export default function Home() {
     const getUser = db.collection("users").doc(currentUser.uid);
     const isToday = (someDate) => {
       const today = new Date();
-      return someDate.getDate() == today.getDate() &&
-        someDate.getMonth() == today.getMonth() &&
-        someDate.getFullYear() == today.getFullYear()
+      return someDate.getDate() === today.getDate() &&
+        someDate.getMonth() === today.getMonth() &&
+        someDate.getFullYear() === today.getFullYear()
     }
     const fetchData = () => {
       db.collection("posts")
