@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "com.firebaseapp.bulsutalk.twa",
+                   "sha256_cert_fingerprints": ["44:3C:38:FF:31:32:1A:19:CA:EB:52:4E:1C:DD:42:88:53:86:BA:49:84:05:AF:17:01:E6:5C:0D:A5:E4:CF:35"] }
+    }]
