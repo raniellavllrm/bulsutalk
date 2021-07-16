@@ -266,6 +266,9 @@ export default function ProfileModal({ open, setOpen }) {
                             value={profile.userName}
                             size="small"
                             autoComplete="current-password"
+                            inputProps={
+                                { readOnly: true, }
+                            }
                         />
                         <TextField
                             variant="outlined"
