@@ -68,9 +68,9 @@ export default function Notification() {
         notifs: null,
     });
     const [replyModal, setReplyModal] = useState(false);
-    const [openID, setOpenID] = useState(0);
-    const replyPost = (postID) => {
-        setOpenID(postID);
+    const [notifID, setNotifID] = useState(0);
+    const replyPost = (notifID) => {
+        setNotifID(notifID);
         setReplyModal(true);
     }
     useEffect(() => {
@@ -148,7 +148,7 @@ export default function Notification() {
                             })}
                     </List>
                 </div>
-                <ReplyModal open={replyModal} setOpen={setReplyModal} postID={openID} />
+                <ReplyModal open={replyModal} setOpen={setReplyModal} postID={notifID} />
             </main>
         </div>
     );
