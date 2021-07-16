@@ -133,12 +133,12 @@ export default function Home() {
             .delete();
     };
     const checkLike = (postID) => {
-        return userLikes.likes && userLikes.likes.forEach((likes) => {
+        return (userLikes.likes && userLikes.likes.forEach((likes) => {
             if (likes.postLiked === postID) {
                 return true;
             }
             return false;
-        })
+        }));
     }
     const likePost = (id) => {
         if (checkLike(id) === true) {
