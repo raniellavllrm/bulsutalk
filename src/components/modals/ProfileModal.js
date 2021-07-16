@@ -146,6 +146,50 @@ export default function ProfileModal({ open, setOpen }) {
 
         }
     };
+    useEffect(() => {
+        let abortController = new AbortController();
+        const fetchData = () => {
+            const currentUser = firebase.auth().currentUser;
+            db.collection("users")
+                .doc(currentUser.uid)
+                .get()
+                .then((doc) => {
+                    console.log(doc.exists);
+                    if (doc.exists) {
+                        setProfile({
+                            firstName: doc.data().firstName,
+                            lastName: doc.data().lastName,
+                            bioDesc: doc.data().bioDesc,
+                            locDesc: doc.data().locDesc,
+                            userName: doc.data().username,
+                            imageExists: doc.data().profilePic
+                        });
+                    }
+                    if (doc.data().profilePic) {
+                        fetchAvatar();
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        };
+        const fetchAvatar = () => {
+            const currentUser = firebase.auth().currentUser;
+            var storageRef = firebase.storage().ref();
+            storageRef
+                .child("images/" + currentUser.uid)
+                .getDownloadURL()
+                .then((url) => {
+                    setImage({
+                        displayURL: url,
+                    });
+                });
+        };
+        fetchData();
+        return () => {
+            abortController.abort();
+        };
+    }, [db]);
     const classes = useStyles();
     return (
         <Modal
