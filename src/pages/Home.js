@@ -180,7 +180,7 @@ export default function Home() {
         .onSnapshot((snapshot) => {
           let posts = [];
           snapshot.forEach((doc) => {
-            if (doc.data().date_posted === currentDate) {
+            if (doc.data().date_posted.toDateString() === currentDate.toDateString()) {
               posts.unshift({ ...doc.data(), id: doc.id });
             }
           });
