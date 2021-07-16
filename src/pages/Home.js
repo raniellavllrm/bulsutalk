@@ -179,8 +179,8 @@ export default function Home() {
         .onSnapshot((snapshot) => {
           let posts = [];
           snapshot.forEach((doc) => {
-            console.log((doc.data().date_posted.toDateString() === currentDate.toDateString()));
-            if (doc.data().date_posted === currentDate) {
+            console.log(moment(doc.data().date_posted).isSame(currentDate));
+            if ((doc.data().date_posted).isSame(currentDate)) {
               posts.unshift({ ...doc.data(), id: doc.id });
             }
           });
