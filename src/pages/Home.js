@@ -174,12 +174,13 @@ export default function Home() {
     const getUser = db.collection("users").doc(currentUser.uid);
 
     const fetchData = () => {
+      var currentDate = new Date().toISOString();
       db.collection("posts")
         .orderBy("date_posted")
         .onSnapshot((snapshot) => {
           let posts = [];
           snapshot.forEach((doc) => {
-            if (doc.data().date_posted === new Date().toISOString()) {
+            if (doc.data().date_posted === currentDate) {
               posts.unshift({ ...doc.data(), id: doc.id });
             }
           });
