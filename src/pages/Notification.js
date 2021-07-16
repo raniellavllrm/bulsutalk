@@ -120,8 +120,8 @@ export default function Notification() {
                                         id="cardField"
                                         elevation={1}
                                         key={notifs.id}
-                                        onClick={replyPost(notifs.notifiedPost)}
                                     >
+                                        <button onClick={replyPost(notifs.notifiedPost)} />
                                         <Grid container wrap="nowrap" spacing={2}>
                                             <Grid item>
                                                 <Avatar className={classes.largeAvatar}
