@@ -40,39 +40,40 @@ export default function ProfileModal({ open, setOpen }) {
         var storage = firebase.storage();
         var storageRef = storage.ref();
         var uploadTask = storageRef.child("images/" + currentUser.uid).put(file);
-        uploadTask.on(
-            firebase.storage.TaskEvent.STATE_CHANGED,
-            (snapshot) => {
-                var progress =
-                    Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                setImage({ progress });
-            },
-            (error) => {
-                throw error;
-            },
-            () => {
-                uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-                    console.log(url);
-                    setImage({
-                        downloadURL: url,
-                    });
-                    db.collection("posts")
-                        .get()
-                        .then(snapshots => {
-                            snapshots.forEach((doc) => {
-                                if (doc.data().userID === currentUser.uid) {
-                                    db.collection("posts").doc(doc.id).update({
-                                        userName: "@" + profile.userName,
-                                        displayName: profile.firstName + profile.lastName,
-                                        imageURL: url
-                                    })
-                                }
-                            });
+        if (file) {
+            uploadTask.on(
+                firebase.storage.TaskEvent.STATE_CHANGED,
+                (snapshot) => {
+                    var progress =
+                        Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    setImage({ progress });
+                },
+                (error) => {
+                    throw error;
+                },
+                () => {
+                    uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+                        setImage({
+                            downloadURL: url,
                         });
-                    handleClose();
-                });
-            }
-        );
+                        db.collection("posts")
+                            .get()
+                            .then(snapshots => {
+                                snapshots.forEach((doc) => {
+                                    if (doc.data().userID === currentUser.uid) {
+                                        db.collection("posts").doc(doc.id).update({
+                                            userName: "@" + profile.userName,
+                                            displayName: profile.firstName + profile.lastName,
+                                            imageURL: url
+                                        })
+                                    }
+                                });
+                            });
+                    });
+                }
+            );
+        }
+        handleClose();
     };
     const db = firebase.firestore();
 
