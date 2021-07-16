@@ -116,17 +116,15 @@ export default function ReplyModal({ open, setOpen, postID }) {
             .doc(postID)
             .get()
             .then((doc) => {
-                if (doc.exists) {
-                    db.collection("reply").add({
-                        postReplied: postID,
-                        userID: currentUser.uid,
-                        userName: profile.userName,
-                        displayName: profile.displayName,
-                        replyContent: reply.replyContent,
-                        date_replied: new Date().toISOString(),
-                        imageURL: avatar.src
-                    });
-                }
+                db.collection("reply").add({
+                    postReplied: postID,
+                    userID: currentUser.uid,
+                    userName: profile.userName,
+                    displayName: profile.displayName,
+                    replyContent: reply.replyContent,
+                    date_replied: new Date().toISOString(),
+                    imageURL: avatar.src
+                });
                 db.collection("posts")
                     .doc(postID).update({
                         replyCount: increment
