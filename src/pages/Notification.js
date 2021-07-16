@@ -11,7 +11,6 @@ import {
     Grid,
     List,
 } from "@material-ui/core";
-import ReplyModal from "../components/modals/ReplyModal";
 
 const drawerWidth = 240;
 
@@ -67,12 +66,6 @@ export default function Notification() {
     const [userNotifs, setNotifs] = useState({
         notifs: null,
     });
-    const [replyModal, setReplyModal] = useState(false);
-    const [notifID, setNotifID] = useState(0);
-    const replyPost = (notifID) => {
-        setNotifID(notifID);
-        setReplyModal(true);
-    }
     useEffect(() => {
         const db = firebase.firestore();
         const currentUser = firebase.auth().currentUser;
@@ -121,7 +114,6 @@ export default function Notification() {
                                         elevation={1}
                                         key={notifs.id}
                                     >
-                                        <button onClick={replyPost(notifs.notifiedPost)} />
                                         <Grid container wrap="nowrap" spacing={2}>
                                             <Grid item>
                                                 <Avatar className={classes.largeAvatar}
@@ -148,7 +140,6 @@ export default function Notification() {
                             })}
                     </List>
                 </div>
-                <ReplyModal open={replyModal} setOpen={setReplyModal} postID={notifID} />
             </main>
         </div>
     );
