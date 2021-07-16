@@ -211,7 +211,7 @@ export default function ReplyModal({ open, setOpen, postID }) {
                 });
         };
         fetchData();
-        fetchReply();
+        if (postID) fetchReply();
         return () => {
             setPostReplies({ replies: null });
         };
