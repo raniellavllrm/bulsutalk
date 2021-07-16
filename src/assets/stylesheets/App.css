@@ -1,0 +1,90 @@
+#logo_login {
+  width: 75px;
+  height: 75px;
+}
+#bulsuLogo {
+  width: 50px;
+  height: 50px;
+  margin-top: 5%;
+}
+#profile {
+  width: 80px;
+  height: 80px;
+}
+#center, #alignInfo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#name {
+  align-self: center;
+}
+#email {
+  align-self: center;
+  margin-bottom: 9px;
+}
+
+#appbarLogo {
+  width: 50px;
+  height: 50px;
+}
+#searchText {
+  float: right;
+  margin: auto;
+  margin-right: 2px;
+}
+#logoLeft {
+  align-items: flex-start;
+}
+
+#submitBtn, #editProfile{
+  float: right;
+  margin: 10px;
+  border-radius: 25px;
+}
+#cardField, #cardProfile{
+  padding: 10px;
+  border-radius: 9px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 3px;
+}
+#cardReply{
+  padding: 15px;
+  border-radius: 9px;
+  width: 70%;
+}
+#cardMyProfile{
+  padding: 2px;
+  border-radius: 9px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+@media (max-width: 800px) {
+  #cardField, #cardProfile, #cardMyProfile{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #cardReply{
+    width:90%;
+  }
+  #textPosts{
+    font-size: 15px;
+  }
+}
+#postDN {
+  font-size: 15px;
+  font-weight: bold;
+  padding-bottom: 0px;
+}
+#postDate {
+  font-size: 10px;
+}
+#centerAvatar{
+  width: 100px;
+  height: 100px;
+}
+#socialInfo{
+  display: flex;
+  justify-content: space-evenly;
+}

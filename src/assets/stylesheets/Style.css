@@ -1,0 +1,194 @@
+.column, .columnClass {
+    float: left;
+    width: 33%;
+    padding: 0 10px;
+    height: 25%;
+}
+
+#username {
+    color: #61926d;
+    font-size: 14px;
+    text-align: center;
+}
+#todopage, #classespage{
+    background-color:#ecece8;
+    height: 1080px;
+}
+.columnLong {
+    width: 100%;
+    padding-bottom: 120px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 150%;
+}
+
+.taskLong {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+}
+@media screen and (max-width: 1080px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+#iconCardLecture {
+    height: 35px;
+    width: 35px;
+}
+
+.card, .classCard{
+    margin-top: 10px;
+    height: 140px;
+    padding: 16px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.classCard{
+    height: 225px;
+    background-color: whitesmoke;
+    border-radius: 9px;
+}
+.cardTasks {
+    margin-top: 10px;
+    height: 50px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #61926d
+}
+
+
+.cardTasks:hover {
+    text-decoration: underline;
+}
+
+.cardLong {
+    height: 470px;
+    background-color: white;
+    color: #61926d;
+    display: flex;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.longCard{
+    height: 70px;
+    background-color: white;
+    color: #767676;
+    display: flex;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 9px;
+}
+.cardLong:hover {
+    height: 470px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#iconCard {
+    width: 70px;
+    height: 70px;
+}
+
+.oneCard {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.totalNum {
+    font-size: 30px;
+}
+
+#borrowedCard,
+#totStudCard,
+#returnCard,
+#totBookCard {
+    background-color: white;
+    color: #61926d;
+}
+
+.card:hover {
+    height: 160px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.search {
+    margin: 10px;
+    width: 98%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url("../images/search.svg");
+    background-size: 15px;
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    padding: 5px 5px 5px 22px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+.header {
+    margin: 30px;
+}
+
+label {
+    font-family: sf_free;
+}
+
+#todoList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+#todoList li {
+    float: left;
+}
+
+#todoList li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+#todoList li a:hover {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.main_content {
+    width: 100%;
+    height: 100%;
+    margin-left: 160px;
+    background-color: #ecece8;
+}
+
+@font-face {
+    font-family: sf_free;
+    src: url("../fonts/sf_free.ttf");
+}
