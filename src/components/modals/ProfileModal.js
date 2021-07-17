@@ -154,7 +154,6 @@ export default function ProfileModal({ open, setOpen }) {
                 .doc(currentUser.uid)
                 .get()
                 .then((doc) => {
-                    console.log(doc.exists);
                     if (doc.exists) {
                         setProfile({
                             firstName: doc.data().firstName,
