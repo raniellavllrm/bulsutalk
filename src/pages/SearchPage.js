@@ -246,6 +246,13 @@ export default function Home() {
                         <Typography className={classes.textPosts}>{posts.postContent}</Typography>
                       </Grid>
                     </Grid>
+                    <Grid item xs zeroMinWidth>
+                      <div id="thisPost">
+                        {posts.postedImage &&
+                          <img className={classes.imagePost} src={posts.postedURL} alt="image_post" />
+                        }
+                      </div>
+                    </Grid>
                     <Divider className={classes.divider} />
                     <CardActions disableSpacing>
                       <IconButton
