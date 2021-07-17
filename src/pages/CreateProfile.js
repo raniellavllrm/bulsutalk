@@ -52,7 +52,7 @@ export default function CreateProfile() {
           });
           db.collection("users")
             .doc(currentUser.uid)
-            .add({
+            .update({
               imageAvatar: url
             })
           history.push("/home");
@@ -130,7 +130,8 @@ export default function CreateProfile() {
           profilePic: true,
         })
         .then(() => {
-          handleUpload();
+          if (image && image.fileImage) handleUpload();
+          else history.push("/home");
         });
     }
   };
