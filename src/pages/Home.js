@@ -160,7 +160,7 @@ export default function Home() {
             downloadURL: url,
           });
           db.collection("posts")
-            .doc(imageID).update({
+            .doc(imageID).add({
               postedImage: true,
               postedURL: url
             })
