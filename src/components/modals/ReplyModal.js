@@ -265,13 +265,13 @@ export default function ReplyModal({ open, setOpen, postID }) {
                             {moment(mainPost.date_posted).format('hh:mm A ∙ MMMM DD, YYYY')}
                         </Typography>
                     </Grid>
-                    <Grid item xs zeroMinWidth>
-                        <div id="thisPost">
-                            {mainPost.postedImage &&
-                                <img className={classes.imagePost} src={mainPost.postURL} alt="image_post" />
-                            }
-                        </div>
-                    </Grid>
+                </Grid>
+                <Grid item xs zeroMinWidth>
+                    <div id="thisPost">
+                        {mainPost.postedImage &&
+                            <img className={classes.imagePost} src={mainPost.postURL} alt="image_post" />
+                        }
+                    </div>
                 </Grid>
                 <Divider />
                 <div className={classes.overFlow}>
