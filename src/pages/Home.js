@@ -161,7 +161,8 @@ export default function Home() {
           });
           console.log(imageID);
           db.collection("posts")
-            .doc(imageID).add({
+            .doc(imageID)
+            .update({
               postedImage: true,
               postedURL: url
             })
