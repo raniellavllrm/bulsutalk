@@ -49,6 +49,11 @@ export default function CreateProfile() {
           setImage({
             downloadURL: url,
           });
+          db.collection("users")
+            .doc(currentUser.uid)
+            .add({
+              imageAvatar: image.downloadURL
+            })
           history.push("/home");
         });
       }
@@ -145,7 +150,7 @@ export default function CreateProfile() {
               bioDesc: doc.data().bioDesc,
               locDesc: doc.data().locDesc,
               userName: doc.data().username,
-              imageExists: doc.data().profilePic
+              imageExists: doc.data().profilePic,
             });
           }
           if (doc.data().profilePic) {
