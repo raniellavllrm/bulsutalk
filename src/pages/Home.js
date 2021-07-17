@@ -155,6 +155,18 @@ export default function Home() {
           setImage({
             downloadURL: url,
           });
+          db.collection("posts")
+            .get()
+            .then(snapshots => {
+              snapshots.forEach((doc) => {
+                if (doc.data().userID === currentUser.uid) {
+                  db.collection("posts").doc(doc.id).update({
+                    postedImage: true,
+                    postedURL: url
+                  })
+                }
+              });
+            });
         });
       }
     );
