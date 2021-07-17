@@ -306,6 +306,11 @@ export default function Home() {
                       </Grid>
                       <Grid item xs zeroMinWidth>
                         <div id="thisPost">
+                          {true ? 'currently' : 'not'} <p>hello this is where the image will be</p>
+                        </div>
+                      </Grid>
+                      <Grid item xs zeroMinWidth>
+                        <div id="thisPost">
                           <Typography variant="body2">
                             {posts.displayName}
                           </Typography>
