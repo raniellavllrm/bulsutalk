@@ -228,128 +228,130 @@ export default function Home() {
       abortController.abort();
     };
   }, []);
-  return (
-    <div>
-      <Navigation />
-      <main>
-        <div
-          className={clsx(classes.content, {
-            [classes.contentShift]: true,
-          })}
-        >
-          <div className={classes.drawerHeader} />
-          <Card variant="outlined" id="cardField">
-            <CardContent>
-              <TextField
-                variant="standard"
-                placeholder="What's on your mind?"
-                className={classes.postTalk}
-                fullWidth
-                multiline
-                inputProps={{
-                  maxLength: 140,
-                }}
-                onChange={handleChange("postContent")}
-                value={post.postContent}
-                InputProps={{
-                  disableUnderline: true,
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <Avatar
-                        src={avatar.src || ".././assets/images/profile.png"}
-                      />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </CardContent>
-            <Grid id="submitButton">
-              <input
-                accept="image/*"
-                id="contained-button-file"
-                multiple
-                type="file"
-                className={classes.input}
-              />
-              <label htmlFor="contained-button-file">
-                <IconButton component="span">
-                  <ImageIcon />
-                </IconButton>
-              </label>
-              <Button
-                id="submitBtn"
-                variant="contained"
-                color="primary"
-                size="small"
-                onClick={createPost}
-                disableElevation
-              >
-                Talk
-              </Button>
-            </Grid>
-          </Card>
-          <List>
-            {userPosts.posts &&
-              userPosts.posts.map((posts) => {
-                return (
-                  <Card
-                    variant="outlined"
-                    id="cardField"
-                    elevation={1}
-                    key={posts.id}
-                  >
-                    <Grid container wrap="nowrap" spacing={2}>
-                      <Grid item>
+  if (profile.displayPicture) {
+    return (
+      <div>
+        <Navigation />
+        <main>
+          <div
+            className={clsx(classes.content, {
+              [classes.contentShift]: true,
+            })}
+          >
+            <div className={classes.drawerHeader} />
+            <Card variant="outlined" id="cardField">
+              <CardContent>
+                <TextField
+                  variant="standard"
+                  placeholder="What's on your mind?"
+                  className={classes.postTalk}
+                  fullWidth
+                  multiline
+                  inputProps={{
+                    maxLength: 140,
+                  }}
+                  onChange={handleChange("postContent")}
+                  value={post.postContent}
+                  InputProps={{
+                    disableUnderline: true,
+                    startAdornment: (
+                      <InputAdornment position="start">
                         <Avatar
-                          src={posts.imageURL || ".././assets/images/profile.png"}
+                          src={avatar.src || ".././assets/images/profile.png"}
                         />
-                      </Grid>
-                      <Grid item xs zeroMinWidth>
-                        <div id="thisPost">
-                          <Typography variant="body2">
-                            {posts.displayName}
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </CardContent>
+              <Grid id="submitButton">
+                <input
+                  accept="image/*"
+                  id="contained-button-file"
+                  multiple
+                  type="file"
+                  className={classes.input}
+                />
+                <label htmlFor="contained-button-file">
+                  <IconButton component="span">
+                    <ImageIcon />
+                  </IconButton>
+                </label>
+                <Button
+                  id="submitBtn"
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                  onClick={createPost}
+                  disableElevation
+                >
+                  Talk
+                </Button>
+              </Grid>
+            </Card>
+            <List>
+              {userPosts.posts &&
+                userPosts.posts.map((posts) => {
+                  return (
+                    <Card
+                      variant="outlined"
+                      id="cardField"
+                      elevation={1}
+                      key={posts.id}
+                    >
+                      <Grid container wrap="nowrap" spacing={2}>
+                        <Grid item>
+                          <Avatar
+                            src={posts.imageURL || ".././assets/images/profile.png"}
+                          />
+                        </Grid>
+                        <Grid item xs zeroMinWidth>
+                          <div id="thisPost">
+                            <Typography variant="body2">
+                              {posts.displayName}
+                            </Typography>
+                            <Typography variant="body2">
+                              {posts.userName}
+                            </Typography>
+                          </div>
+                        </Grid>
+                        <Grid item>
+                          <Typography variant="subtitle2">
+                            {moment(posts.date_posted).fromNow()}
                           </Typography>
-                          <Typography variant="body2">
-                            {posts.userName}
-                          </Typography>
-                        </div>
+                        </Grid>
                       </Grid>
-                      <Grid item>
-                        <Typography variant="subtitle2">
-                          {moment(posts.date_posted).fromNow()}
-                        </Typography>
+                      <Grid container wrap="nowrap" spacing={2}>
+                        <Grid item xs zeroMinWidth>
+                          <Typography className={classes.textPosts}>{posts.postContent}</Typography>
+                        </Grid>
                       </Grid>
-                    </Grid>
-                    <Grid container wrap="nowrap" spacing={2}>
-                      <Grid item xs zeroMinWidth>
-                        <Typography className={classes.textPosts}>{posts.postContent}</Typography>
-                      </Grid>
-                    </Grid>
-                    <Divider className={classes.divider} />
-                    <CardActions disableSpacing>
-                      <IconButton
-                        className={classes.button}
-                        onClick={() => replyPost(posts.id)}
-                      >
-                        <ReplyIcon />
-                        <Typography>{posts.replyCount}</Typography>
-                      </IconButton>
-                      <IconButton
-                        color={checkLike(posts.id) === true ? "primary" : "default"}
-                        className={classes.button}
-                        onClick={() => likePost(posts.id, posts.userID)}
-                      >
-                        <FavoriteIcon />
-                        <Typography> {posts.likes}</Typography>
-                      </IconButton>
-                    </CardActions>
-                  </Card>
-                );
-              })}
-          </List>
-          <ReplyModal open={replyModal} setOpen={setReplyModal} postID={openID} />
-        </div>
-      </main>
-    </div>
-  );
+                      <Divider className={classes.divider} />
+                      <CardActions disableSpacing>
+                        <IconButton
+                          className={classes.button}
+                          onClick={() => replyPost(posts.id)}
+                        >
+                          <ReplyIcon />
+                          <Typography>{posts.replyCount}</Typography>
+                        </IconButton>
+                        <IconButton
+                          color={checkLike(posts.id) === true ? "primary" : "default"}
+                          className={classes.button}
+                          onClick={() => likePost(posts.id, posts.userID)}
+                        >
+                          <FavoriteIcon />
+                          <Typography> {posts.likes}</Typography>
+                        </IconButton>
+                      </CardActions>
+                    </Card>
+                  );
+                })}
+            </List>
+            <ReplyModal open={replyModal} setOpen={setReplyModal} postID={openID} />
+          </div>
+        </main>
+      </div>
+    );
+  }
 }
