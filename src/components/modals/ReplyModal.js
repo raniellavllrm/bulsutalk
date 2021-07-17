@@ -184,7 +184,7 @@ export default function ReplyModal({ open, setOpen, postID }) {
                         let reply = [];
                         snapshot.forEach((doc) => {
                             if (doc.data().postReplied === postID) {
-                                reply.unshift({ ...doc.data(), id: doc.id });
+                                reply.push({ ...doc.data(), id: doc.id });
                             }
                         }
                         );
