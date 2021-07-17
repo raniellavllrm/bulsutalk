@@ -160,17 +160,10 @@ export default function Home() {
             downloadURL: url,
           });
           db.collection("posts")
-            .get()
-            .then(snapshots => {
-              snapshots.forEach((doc) => {
-                if (doc.id === imageID) {
-                  db.collection("posts").doc(imageID).update({
-                    postedImage: true,
-                    postedURL: url
-                  })
-                }
-              });
-            });
+            .doc(imageID).update({
+              postedImage: true,
+              postedURL: url
+            })
         });
       }
     );
