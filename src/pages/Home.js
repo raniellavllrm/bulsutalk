@@ -327,7 +327,7 @@ export default function Home() {
                     </Grid>
                     <Grid item xs zeroMinWidth>
                       <div id="thisPost">
-                        {true &&
+                        {false &&
                           <h2>
                             You have unread messages.
                           </h2>
