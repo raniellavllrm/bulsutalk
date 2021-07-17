@@ -76,9 +76,9 @@ export default function Home() {
   });
 
   const [post, setPost] = useState({
-    postID: "",
     postContent: "",
   });
+
 
   const handleChange = (prop) => (e) => {
     setPost({ ...post, [prop]: e.target.value });
