@@ -108,7 +108,7 @@ export default function Friends() {
                                     >
                                         <Grid container wrap="nowrap" spacing={2}>
                                             <Grid item>
-                                                <Avatar className={classes.avatarColor}>{friends.firstName[0] + friends.lastName[0]}</Avatar>
+                                                <Avatar src={friends.imageAvatar || ".././assets/images/profile.png"}></Avatar>
                                             </Grid>
                                             <Grid item xs zeroMinWidth>
                                                 <div id="thisPost">
