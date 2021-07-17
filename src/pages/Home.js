@@ -160,7 +160,6 @@ export default function Home() {
     }
   }
 
-
   const [openID, setOpenID] = useState(0);
   const replyPost = (postID) => {
     setOpenID(postID);

@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 export default function CreateProfile() {
+  const db = firebase.firestore();
   const [image, setImage] = useState({
     fileImage: null,
     progress: 0,
@@ -51,15 +52,14 @@ export default function CreateProfile() {
           });
           db.collection("users")
             .doc(currentUser.uid)
-            .update({
-              imageAvatar: image.downloadURL
+            .add({
+              imageAvatar: url
             })
           history.push("/home");
         });
       }
     );
   };
-  const db = firebase.firestore();
 
   const [profile, setProfile] = useState({
     firstName: "",
