@@ -63,6 +63,10 @@ const useStyles = makeStyles((theme) => ({
   },
   textPosts: {
     paddingBottom: 10
+  },
+  imagePost: {
+    width: 250,
+    height: 250
   }
 }));
 export default function Home() {
@@ -318,7 +322,7 @@ export default function Home() {
             <Grid item xs zeroMinWidth>
               <div id="thisPost">
                 {image.displayURL &&
-                  <img src={image.displayURL} alt="image_post" />
+                  <img className={classes.imagePost} src={image.displayURL} alt="image_post" />
                 }
               </div>
             </Grid>
