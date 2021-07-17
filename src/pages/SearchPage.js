@@ -84,7 +84,6 @@ export default function Home() {
     setPost({ ...post, [prop]: e.target.value });
   };
 
-
   const checkLike = (postID) => {
     let test = false;
     userLikes.likes && userLikes.likes.forEach((likes) => {
@@ -127,7 +126,7 @@ export default function Home() {
         .collection("notifs")
         .add({
           notifiedPost: id,
-          notifContent: profile.userName + notifMessage,
+          notifContent: "profile.userName" + notifMessage,
           date_notif: new Date().toISOString(),
           notifAvatar: avatar.src,
           sourceUser: currentUser.uid
