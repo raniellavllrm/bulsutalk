@@ -104,7 +104,8 @@ export default function Home() {
         postContent: post.postContent,
         date_posted: new Date().toISOString(),
         imageURL: avatar.src,
-        likes: 0
+        likes: 0,
+        postedImage: false
       })
       .then((doc) => {
         post.postID = doc.id;

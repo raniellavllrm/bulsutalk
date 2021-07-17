@@ -68,6 +68,13 @@ export default function ReplyModal({ open, setOpen, postID }) {
         overFlow: {
             overflowY: "scroll",
             height: 400
+        },
+        imagePost: {
+            width: 200,
+            height: 200,
+            display: "block",
+            marginLeft: "auto",
+            marginRight: "auto"
         }
     }));
     const [mainPost, setMainPost] = useState({
@@ -76,7 +83,9 @@ export default function ReplyModal({ open, setOpen, postID }) {
         postContent: "",
         date_posted: "",
         imageURL: "",
-        userID: ""
+        userID: "",
+        postedImage: false,
+        postURL: ""
     });
     const [reply, setReply] = useState({
         postID: "",
@@ -152,6 +161,8 @@ export default function ReplyModal({ open, setOpen, postID }) {
                             postContent: doc.data().postContent,
                             date_posted: doc.data().date_posted,
                             imageURL: doc.data().imageURL,
+                            postedImage: doc.data().postedImage,
+                            postURL: doc.data().postedURL
                         })
                     })
             }
@@ -253,6 +264,13 @@ export default function ReplyModal({ open, setOpen, postID }) {
                         <Typography variant="subtitle2" className={classes.dateBottom} color="primary">
                             {moment(mainPost.date_posted).format('hh:mm A ∙ MMMM DD, YYYY')}
                         </Typography>
+                    </Grid>
+                    <Grid item xs zeroMinWidth>
+                        <div id="thisPost">
+                            {mainPost.postedImage &&
+                                <img className={classes.imagePost} src={mainPost.postURL} alt="image_post" />
+                            }
+                        </div>
                     </Grid>
                 </Grid>
                 <Divider />
