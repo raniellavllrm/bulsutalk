@@ -336,6 +336,13 @@ export default function Home() {
                                                 <Typography>{posts.postContent}</Typography>
                                             </Grid>
                                         </Grid>
+                                        <Grid item xs zeroMinWidth>
+                                            <div id="thisPost">
+                                                {image.displayURL &&
+                                                    <img className={classes.imagePost} src={image.displayURL} alt="image_post" />
+                                                }
+                                            </div>
+                                        </Grid>
                                         <Divider className={classes.divider} />
                                         <CardActions disableSpacing>
                                             <IconButton
