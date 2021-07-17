@@ -128,7 +128,6 @@ export default function Home() {
           notifiedPost: id,
           notifContent: "profile.userName" + notifMessage,
           date_notif: new Date().toISOString(),
-          notifAvatar: avatar.src,
           sourceUser: currentUser.uid
         });
     }
