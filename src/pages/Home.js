@@ -3,7 +3,6 @@ import moment from "moment";
 import Navigation from "../pages/Navigation";
 import clsx from "clsx";
 import firebase from "../utils/firebase";
-import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   TextField,
@@ -67,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 export default function Home() {
-  const history = useHistory();
   const db = firebase.firestore();
   const currentUser = firebase.auth().currentUser;
   const [replyModal, setReplyModal] = useState(false)
