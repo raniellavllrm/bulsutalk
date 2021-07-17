@@ -1,5 +1,14 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target" : { "namespace": "android_app", "package_name": "app.netlify.bulsutalk.twa",
-                   "sha256_cert_fingerprints": ["1B:02:08:48:0A:01:5D:85:16:4D:E0:F8:DA:E5:30:59:E8:0D:DA:27:41:A9:44:32:7C:1F:32:D7:03:8A:91:FE"] }
-    }]
+[
+      {
+            "relation": [
+                  "delegate_permission/common.handle_all_urls"
+            ],
+            "target": {
+                  "namespace": "android_app",
+                  "package_name": "app.netlify.bulsutalk.twa",
+                  "sha256_cert_fingerprints": [
+                        "1B:02:08:48:0A:01:5D:85:16:4D:E0:F8:DA:E5:30:59:E8:0D:DA:27:41:A9:44:32:7C:1F:32:D7:03:8A:91:FE"
+                  ]
+            }
+      }
+]
