@@ -3,6 +3,7 @@ import moment from "moment";
 import Navigation from "../pages/Navigation";
 import clsx from "clsx";
 import firebase from "../utils/firebase";
+import { Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   TextField,
@@ -353,5 +354,7 @@ export default function Home() {
         </main>
       </div>
     );
+  } else {
+    <Redirect to="/createprofile" exact />
   }
 }
