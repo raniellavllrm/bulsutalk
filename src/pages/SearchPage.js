@@ -19,6 +19,7 @@ import {
 } from "@material-ui/core";
 import ReplyIcon from "@material-ui/icons/Reply";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import SearchIcon from "@material-ui/icons/Search";
 
 import ReplyModal from "../components/modals/ReplyModal";
 
@@ -199,9 +200,7 @@ export default function Home() {
                   disableUnderline: true,
                   startAdornment: (
                     <InputAdornment position="start">
-                      <Avatar
-                        src={".././assets/images/profile.png"}
-                      />
+                      <Avatar><SearchIcon /></Avatar>
                     </InputAdornment>
                   ),
                 }}
