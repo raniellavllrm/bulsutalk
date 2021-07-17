@@ -67,7 +67,7 @@ export default function ReplyModal({ open, setOpen, postID }) {
         },
         overFlow: {
             overflowY: "scroll",
-            height: 400
+            height: 340
         },
         imagePost: {
             width: 200,
