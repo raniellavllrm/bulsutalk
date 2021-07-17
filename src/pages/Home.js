@@ -21,6 +21,7 @@ import {
 import ReplyIcon from "@material-ui/icons/Reply";
 import ImageIcon from "@material-ui/icons/PhotoCamera";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import CloseIcon from '@material-ui/icons/Close';
 
 import ReplyModal from "../components/modals/ReplyModal";
 
@@ -65,8 +66,8 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 10
   },
   imagePost: {
-    width: 250,
-    height: 250
+    width: 200,
+    height: 200
   }
 }));
 export default function Home() {
@@ -391,10 +392,8 @@ export default function Home() {
                     </Grid>
                     <Grid item xs zeroMinWidth>
                       <div id="thisPost">
-                        {false &&
-                          <h2>
-                            You have unread messages.
-                          </h2>
+                        {posts.postedImage &&
+                          <img className={posts.postedURL} src={image.displayURL} alt="image_post" />
                         }
                       </div>
                     </Grid>
