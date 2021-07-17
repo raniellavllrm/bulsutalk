@@ -306,7 +306,7 @@ export default function Home() {
             <Grid item xs zeroMinWidth>
               <div id="thisPost">
                 {image.displayURL &&
-                  <img src={image.displayURL} />
+                  <img src={image.displayURL} alt="image_post" />
                 }
               </div>
             </Grid>
