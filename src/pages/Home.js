@@ -163,7 +163,6 @@ export default function Home() {
           setImage({
             downloadURL: url,
           });
-          console.log(imageID);
           db.collection("posts")
             .doc(imageID)
             .update({
