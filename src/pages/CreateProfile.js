@@ -51,7 +51,7 @@ export default function CreateProfile() {
           });
           db.collection("users")
             .doc(currentUser.uid)
-            .add({
+            .update({
               imageAvatar: image.downloadURL
             })
           history.push("/home");
