@@ -66,7 +66,10 @@ const useStyles = makeStyles((theme) => ({
   },
   imagePost: {
     width: 200,
-    height: 200
+    height: 200,
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto"
   }
 }));
 export default function Home() {
