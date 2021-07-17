@@ -23,7 +23,6 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import GroupIcon from '@material-ui/icons/Group';
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import SearchIcon from "@material-ui/icons/Search";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import HomeIcon from "@material-ui/icons/Home";
 import NotifIcon from "@material-ui/icons/Notifications";
 import ExitIcon from "@material-ui/icons/ExitToApp";
@@ -190,13 +189,6 @@ export default function Navigation() {
           <div id="searchText">
             <IconButton aria-label="search" color="inherit" component={Link} to={"/searchpage"}>
               <SearchIcon />
-            </IconButton>
-            <IconButton
-              aria-label="display more actions"
-              edge="end"
-              color="inherit"
-            >
-              <MoreIcon />
             </IconButton>
           </div>
         </Toolbar>
