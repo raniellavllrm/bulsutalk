@@ -101,6 +101,7 @@ export default function Home() {
       })
       .then((doc) => {
         post.postID = doc.id;
+        handleUpload(post.postID);
       });
     post.postContent = "";
   };
@@ -119,6 +120,45 @@ export default function Home() {
     })
     return test;
   }
+  //image handling
+  const [image, setImage] = useState({
+    fileImage: null,
+    progress: 0,
+    downloadURL: null,
+    displayURL: null,
+  });
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setImage({
+        fileImage: e.target.files[0],
+        displayURL: URL.createObjectURL(e.target.files[0]),
+      });
+    }
+  };
+  const handleUpload = (postID) => {
+    let file = image.fileImage;
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+    var uploadTask = storageRef.child("posts/" + postID).put(file);
+    uploadTask.on(
+      firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot) => {
+        var progress =
+          Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setImage({ progress });
+      },
+      (error) => {
+        throw error;
+      },
+      () => {
+        uploadTask.snapshot.ref.getDownloadURL().then((url) => {
+          setImage({
+            downloadURL: url,
+          });
+        });
+      }
+    );
+  };
   const likePost = (id, userID) => {
     const increment = firebase.firestore.FieldValue.increment(1);
     const decrement = firebase.firestore.FieldValue.increment(-1);
@@ -265,10 +305,8 @@ export default function Home() {
             </CardContent>
             <Grid item xs zeroMinWidth>
               <div id="thisPost">
-                {true &&
-                  <h2>
-                    You have unread messages.
-                  </h2>
+                {image.displayURL &&
+                  <img src={image.displayURL} />
                 }
               </div>
             </Grid>
@@ -279,6 +317,7 @@ export default function Home() {
                 multiple
                 type="file"
                 className={classes.input}
+                onChange={handleImageChange}
               />
               <label htmlFor="contained-button-file">
                 <IconButton component="span">
