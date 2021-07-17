@@ -73,6 +73,13 @@ const useStyles = makeStyles((theme) => ({
     nameDisplay: {
         fontStyle: "italic",
         fontWeight: "bold"
+    },
+    imagePost: {
+        width: 200,
+        height: 200,
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto"
     }
 }));
 export default function Home() {
@@ -338,8 +345,8 @@ export default function Home() {
                                         </Grid>
                                         <Grid item xs zeroMinWidth>
                                             <div id="thisPost">
-                                                {image.displayURL &&
-                                                    <img className={classes.imagePost} src={image.displayURL} alt="image_post" />
+                                                {posts.postedImage &&
+                                                    <img className={classes.imagePost} src={posts.postedURL} alt="image_post" />
                                                 }
                                             </div>
                                         </Grid>
