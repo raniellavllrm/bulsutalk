@@ -21,7 +21,6 @@ import {
 import ReplyIcon from "@material-ui/icons/Reply";
 import ImageIcon from "@material-ui/icons/PhotoCamera";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import CloseIcon from '@material-ui/icons/Close';
 
 import ReplyModal from "../components/modals/ReplyModal";
 
