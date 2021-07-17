@@ -82,7 +82,6 @@ export default function Register() {
         .auth()
         .createUserWithEmailAndPassword(payload.email, payload.pass)
         .then((signedinUser) => {
-          history.push("/createprofile");
           const currentUser = firebase.auth().currentUser;
           db.collection("users")
             .doc(currentUser.uid)
@@ -99,7 +98,7 @@ export default function Register() {
               var storageRef = storage.ref();
               var uploadTask = storageRef.child("images/" + currentUser.uid).put(".././assets/images/profile.png");
               uploadTask.then(() => {
-
+                history.push("/createprofile");
               })
 
             });
