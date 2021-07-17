@@ -193,7 +193,6 @@ export default function Home() {
                 placeholder="Type something to start searching.."
                 className={classes.searchBar}
                 fullWidth
-                multiline
                 inputProps={{
                   maxLength: 140,
                 }}
