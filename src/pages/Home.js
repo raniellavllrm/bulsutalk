@@ -163,7 +163,7 @@ export default function Home() {
             .get()
             .then(snapshots => {
               snapshots.forEach((doc) => {
-                if (doc.id === postID) {
+                if (doc.id === imageID) {
                   db.collection("posts").doc(imageID).update({
                     postedImage: true,
                     postedURL: url
