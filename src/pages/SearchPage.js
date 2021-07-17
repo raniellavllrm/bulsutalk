@@ -171,7 +171,7 @@ export default function Home() {
       setPosts({ posts: null });
       abortController.abort();
     };
-  }, []);
+  }, [search.searchContent]);
   return (
     <div>
       <Navigation />
