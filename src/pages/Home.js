@@ -392,7 +392,7 @@ export default function Home() {
                     <Grid item xs zeroMinWidth>
                       <div id="thisPost">
                         {posts.postedImage &&
-                          <img className={posts.postedURL} src={image.displayURL} alt="image_post" />
+                          <img className={classes.imagePost} src={posts.postedURL} alt="image_post" />
                         }
                       </div>
                     </Grid>
