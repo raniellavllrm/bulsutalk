@@ -188,7 +188,7 @@ export default function Navigation() {
             <MenuIcon />
           </IconButton>
           <div id="searchText">
-            <IconButton aria-label="search" color="inherit">
+            <IconButton aria-label="search" color="inherit" component={Link} to={"/searchpage"}>
               <SearchIcon />
             </IconButton>
             <IconButton
