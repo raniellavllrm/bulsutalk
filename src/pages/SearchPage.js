@@ -65,6 +65,13 @@ const useStyles = makeStyles((theme) => ({
   },
   searchBar: {
     padding: 0
+  },
+  imagePost: {
+    width: 200,
+    height: 200,
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto"
   }
 }));
 export default function Home() {
