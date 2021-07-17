@@ -1,5 +1,5 @@
 [{
       "relation": ["delegate_permission/common.handle_all_urls"],
-      "target" : { "namespace": "android_app", "package_name": "com.firebaseapp.bulsutalk.twa",
-                   "sha256_cert_fingerprints": ["44:3C:38:FF:31:32:1A:19:CA:EB:52:4E:1C:DD:42:88:53:86:BA:49:84:05:AF:17:01:E6:5C:0D:A5:E4:CF:35"] }
+      "target" : { "namespace": "android_app", "package_name": "app.netlify.bulsutalk.twa",
+                   "sha256_cert_fingerprints": ["1B:02:08:48:0A:01:5D:85:16:4D:E0:F8:DA:E5:30:59:E8:0D:DA:27:41:A9:44:32:7C:1F:32:D7:03:8A:91:FE"] }
     }]

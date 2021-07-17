@@ -65,6 +65,9 @@ export default function ProfileModal({ open, setOpen }) {
                                         displayName: profile.firstName + profile.lastName,
                                         imageURL: url
                                     })
+                                    db.collection("users").doc(currentUser.uid).update({
+                                        imageAvatar: url
+                                    })
                                 }
                             });
                         });
