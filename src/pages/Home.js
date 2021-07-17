@@ -228,7 +228,7 @@ export default function Home() {
       abortController.abort();
     };
   }, []);
-  if (profile.displayPicture) {
+  if (profile.displayPicture === true) {
     return (
       <div>
         <Navigation />
