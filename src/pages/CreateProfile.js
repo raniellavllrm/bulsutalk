@@ -131,7 +131,7 @@ export default function CreateProfile() {
         })
         .then(() => {
           if (image && image.fileImage) handleUpload();
-          else handleClose();
+          else history.push("/home");
         });
     }
   };
