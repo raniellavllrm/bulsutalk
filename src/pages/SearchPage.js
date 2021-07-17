@@ -75,13 +75,13 @@ export default function Home() {
     likes: null,
   });
 
-  const [post, setPost] = useState({
-    postContent: "",
+  const [search, setSearch] = useState({
+    searchContent: "",
   });
 
 
   const handleChange = (prop) => (e) => {
-    setPost({ ...post, [prop]: e.target.value });
+    setSearch({ ...search, [prop]: e.target.value });
   };
 
   const checkLike = (postID) => {
@@ -150,7 +150,7 @@ export default function Home() {
         .onSnapshot((snapshot) => {
           let posts = [];
           snapshot.forEach((doc) => {
-            if (doc.data().postContent.includes("haha")) {
+            if (doc.data().postContent.includes(search.searchContent)) {
               posts.unshift({ ...doc.data(), id: doc.id });
             }
           });
@@ -193,8 +193,8 @@ export default function Home() {
                 inputProps={{
                   maxLength: 140,
                 }}
-                onChange={handleChange("postContent")}
-                value={post.postContent}
+                onChange={handleChange("searchContent")}
+                value={search.searchContent}
                 InputProps={{
                   disableUnderline: true,
                   startAdornment: (
