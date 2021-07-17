@@ -200,7 +200,7 @@ export default function Home() {
                   startAdornment: (
                     <InputAdornment position="start">
                       <Avatar
-                        src={avatar.src || ".././assets/images/profile.png"}
+                        src={".././assets/images/profile.png"}
                       />
                     </InputAdornment>
                   ),
