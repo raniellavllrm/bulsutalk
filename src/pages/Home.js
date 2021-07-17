@@ -263,6 +263,15 @@ export default function Home() {
                 }}
               />
             </CardContent>
+            <Grid item xs zeroMinWidth>
+              <div id="thisPost">
+                {true &&
+                  <h2>
+                    You have unread messages.
+                  </h2>
+                }
+              </div>
+            </Grid>
             <Grid id="submitButton">
               <input
                 accept="image/*"
