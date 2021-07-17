@@ -13,6 +13,7 @@ import firebase from "./utils/firebase";
 import theme from "./utils/theme";
 import Home from "./pages/Home";
 import MyProfile from "./pages/MyProfile";
+import SearchPage from "./pages/SearchPage";
 import Loading from "./pages/Loading";
 import Login from "./pages/Login";
 import Notification from "./pages/Notification";
@@ -96,6 +97,12 @@ function App() {
             component={Loading}
             isAuth={state.isAuth}
             path="/loading"
+            exact
+          />
+          <PrivateRoute
+            component={SearchPage}
+            isAuth={state.isAuth}
+            path="/searchpage"
             exact
           />
         </Switch>
