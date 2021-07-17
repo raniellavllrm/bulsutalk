@@ -306,11 +306,6 @@ export default function Home() {
                       </Grid>
                       <Grid item xs zeroMinWidth>
                         <div id="thisPost">
-                          {true ? 'currently' : 'not'} <p>hello this is where the image will be</p>
-                        </div>
-                      </Grid>
-                      <Grid item xs zeroMinWidth>
-                        <div id="thisPost">
                           <Typography variant="body2">
                             {posts.displayName}
                           </Typography>
@@ -329,6 +324,15 @@ export default function Home() {
                       <Grid item xs zeroMinWidth>
                         <Typography className={classes.textPosts}>{posts.postContent}</Typography>
                       </Grid>
+                    </Grid>
+                    <Grid item xs zeroMinWidth>
+                      <div id="thisPost">
+                        {true &&
+                          <h2>
+                            You have unread messages.
+                          </h2>
+                        }
+                      </div>
                     </Grid>
                     <Divider className={classes.divider} />
                     <CardActions disableSpacing>
