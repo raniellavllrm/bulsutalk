@@ -108,7 +108,7 @@ export default function Home() {
       })
       .then((doc) => {
         post.postID = doc.id;
-        handleUpload(doc.id);
+        if (image && image.fileImage) handleUpload(doc.id);
       });
     post.postContent = "";
   };
