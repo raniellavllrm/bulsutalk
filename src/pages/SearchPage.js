@@ -62,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
   },
   textPosts: {
     paddingBottom: 10
+  },
+  searchBar: {
+    padding: 0
   }
 }));
 export default function Home() {
@@ -188,7 +191,7 @@ export default function Home() {
               <TextField
                 variant="standard"
                 placeholder="Type something to start searching.."
-                className={classes.postTalk}
+                className={classes.searchBar}
                 fullWidth
                 multiline
                 inputProps={{
