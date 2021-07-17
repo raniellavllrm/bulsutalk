@@ -74,9 +74,7 @@ export default function Home() {
   const [userLikes, setLikes] = useState({
     likes: null,
   });
-  const [avatar, setAvatar] = useState({
-    src: null,
-  });
+
   const [post, setPost] = useState({
     postID: "",
     postContent: "",
@@ -85,23 +83,7 @@ export default function Home() {
   const handleChange = (prop) => (e) => {
     setPost({ ...post, [prop]: e.target.value });
   };
-  const createPost = (e) => {
-    const currentUser = firebase.auth().currentUser;
-    db.collection("posts")
-      .add({
-        userID: currentUser.uid,
-        userName: profile.userName,
-        displayName: profile.displayName,
-        postContent: post.postContent,
-        date_posted: new Date().toISOString(),
-        imageURL: avatar.src,
-        likes: 0
-      })
-      .then((doc) => {
-        post.postID = doc.id;
-      });
-    post.postContent = "";
-  };
+
 
   const checkLike = (postID) => {
     let test = false;
@@ -187,19 +169,6 @@ export default function Home() {
         });
     };
     fetchData();
-    const fetchAvatar = () => {
-      var storageRef = firebase.storage().ref();
-      storageRef
-        .child("images/" + currentUser.uid)
-        .getDownloadURL()
-        .then((url) => {
-          setAvatar({
-            src: url,
-          });
-        }).catch(error => {
-          console.log(error)
-        });
-    };
     return () => {
       setPosts({ posts: null });
       abortController.abort();
