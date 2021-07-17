@@ -139,11 +139,11 @@ export default function Home() {
       });
     }
   };
-  const handleUpload = (postID) => {
+  const handleUpload = (imageID) => {
     let file = image.fileImage;
     var storage = firebase.storage();
     var storageRef = storage.ref();
-    var uploadTask = storageRef.child("posts/" + postID).put(file);
+    var uploadTask = storageRef.child("posts/" + imageID).put(file);
     uploadTask.on(
       firebase.storage.TaskEvent.STATE_CHANGED,
       (snapshot) => {
@@ -164,7 +164,7 @@ export default function Home() {
             .then(snapshots => {
               snapshots.forEach((doc) => {
                 if (doc.id === postID) {
-                  db.collection("posts").doc(doc.id).update({
+                  db.collection("posts").doc(imageID).update({
                     postedImage: true,
                     postedURL: url
                   })
