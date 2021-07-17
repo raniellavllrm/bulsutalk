@@ -130,7 +130,8 @@ export default function CreateProfile() {
           profilePic: true,
         })
         .then(() => {
-          handleUpload();
+          if (image && image.fileImage) handleUpload();
+          else handleClose();
         });
     }
   };
